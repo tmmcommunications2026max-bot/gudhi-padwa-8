@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gudhi Padwa 2026 – Triveni Mitra Mandal</title>
+<meta property="og:title" content="Gudhi Padwa 2026 - Triveni Mitra Mandal">
+<meta property="og:description" content="Ticketing, Buy Membership and Volunteering link">
+<meta property="og:image" content="https://tmmcommunications2026max-bot.github.io/gudhi-padwa-8/gudhi-padwa-thumbnail-1.jpg">
+<meta property="og:type" content="event">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Light panel — opposite of #000000 */
+    --panel-bg:      #FFFFFF;
+    --panel-border:  #C9922A;
+
+    /* Accent palette drawn from the flyer's warm saffron/crimson/green */
+    --gold:          #B8740A;
+    --gold-light:    #7A4A02;
+    --gold-deep:     #8C5A08;
+    --amber:         #C26A00;
+    --amber-hi:      #D97B00;
+    --crimson:       #8B1A1A;
+    --crimson-hi:    #B52828;
+    --forest:        #1E4D2B;
+    --forest-hi:     #27663A;
+
+    --text-bright:   #2A1200;
+    --text-muted:    #6B3E10;
+    --divider-line:  rgba(180, 110, 20, 0.35);
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Cinzel', serif;
+  }
+
+  body {
+    background: #F5EDD8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: clamp(0px, 2vw, 32px) 0;
+  }
+
+  /* Subtle warm texture on the body */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(212,120,10,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(139,26,26,0.06) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1.5px rgba(180, 110, 20, 0.45),
+      0 0 40px rgba(212, 120, 10, 0.15),
+      0 30px 90px rgba(0, 0, 0, 0.22);
+  }
+
+  .poster-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* ── PANEL: white / ivory — contrast of #000000 ── */
+  .btn-panel {
+    background: var(--panel-bg);
+    border-top: 3px solid var(--panel-border);
+    padding: clamp(18px, 4vw, 28px) clamp(18px, 5vw, 36px) clamp(22px, 5vw, 32px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 2.5vw, 16px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    animation-play-state: paused;
+  }
+  .btn-panel.visible { animation-play-state: running; }
+
+  /* ── Divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, var(--gold-deep), transparent);
+  }
+  .divider-gem {
+    color: var(--amber-hi);
+    font-size: clamp(9px, 2vw, 12px);
+    letter-spacing: 8px;
+    line-height: 1;
+  }
+
+  /* ── Event time box ── */
+  .event-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    background: rgba(193, 130, 30, 0.09);
+    border: 1.5px solid rgba(180, 110, 20, 0.35);
+    border-radius: 7px;
+    padding: clamp(9px, 2.2vw, 13px) 14px;
+  }
+  .event-time .time-title {
+    font-size: clamp(10px, 2.3vw, 13px);
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: clamp(0.3px, 0.25vw, 1px);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .event-time .time-row {
+    font-size: clamp(13px, 3vw, 17px);
+    font-weight: 900;
+    color: var(--gold-light);
+    letter-spacing: clamp(0.5px, 0.3vw, 1.2px);
+    white-space: nowrap;
+  }
+
+  /* ── Early bird banner ── */
+  .early-bird {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    font-size: clamp(11px, 2.5vw, 13.5px);
+    font-weight: 900;
+    color: #8C4A00;
+    letter-spacing: clamp(0.4px, 0.25vw, 1px);
+    text-align: center;
+    background: rgba(212, 120, 10, 0.10);
+    border: 1.5px solid rgba(180, 100, 10, 0.35);
+    border-radius: 7px;
+    padding: clamp(8px, 2vw, 11px) 14px;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212,120,10,0.0); }
+    50%       { box-shadow: 0 0 0 5px rgba(212,120,10,0.13); }
+  }
+
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2.2vw, 13px);
+    width: 100%;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    color: #fff;
+    font-size: clamp(11.5px, 2.6vw, 14px);
+    letter-spacing: clamp(1px, 0.4vw, 2px);
+    padding: clamp(13px, 3.2vw, 16px) 18px;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  }
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.26) 50%, transparent 100%);
+    transition: left 0.55s ease;
+  }
+  .btn:hover::after { left: 170%; }
+  .btn:hover  { transform: translateY(-2px); filter: brightness(1.08); }
+  .btn:active { transform: scale(0.97); }
+
+  /* Tickets — rich saffron/amber, readable on white */
+  .btn-tickets {
+    background: linear-gradient(135deg, #D97B00 0%, #B56500 50%, #D97B00 100%);
+    border: 2px solid #F5C060;
+    box-shadow: 0 4px 18px rgba(180, 90, 0, 0.40), inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+  .btn-tickets:hover { box-shadow: 0 8px 28px rgba(180, 90, 0, 0.60), inset 0 1px 0 rgba(255,255,255,0.18); }
+
+  /* Member — deep crimson, saturated for white bg */
+  .btn-member {
+    background: linear-gradient(135deg, #B52828 0%, #7A1010 50%, #B52828 100%);
+    border: 2px solid rgba(220, 120, 120, 0.55);
+    box-shadow: 0 4px 18px rgba(139, 26, 26, 0.38), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .btn-member:hover { box-shadow: 0 8px 28px rgba(139, 26, 26, 0.58), inset 0 1px 0 rgba(255,255,255,0.15); }
+
+  /* Volunteer — forest green, vivid on white */
+  .btn-volunteer {
+    background: linear-gradient(135deg, #27663A 0%, #164826 50%, #27663A 100%);
+    border: 2px solid rgba(100, 200, 130, 0.38);
+    box-shadow: 0 4px 18px rgba(30, 77, 43, 0.38), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .btn-volunteer:hover { box-shadow: 0 8px 28px rgba(30, 77, 43, 0.58), inset 0 1px 0 rgba(255,255,255,0.15); }
+
+  .contact-note {
+    font-size: clamp(8.5px, 1.85vw, 11px);
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+    text-align: center;
+    line-height: 1.7;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  .contact-note a {
+    color: var(--crimson);
+    text-decoration: none;
+    font-weight: 900;
+  }
+  .contact-note a:hover { text-decoration: underline; }
+
+  .footer-note {
+    font-size: clamp(8.5px, 1.8vw, 10.5px);
+    color: var(--gold-deep);
+    letter-spacing: 0.6px;
+    text-align: center;
+    line-height: 1.65;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 499px) {
+    body {
+      padding: 0;
+      background: #F5EDD8;
+      justify-content: flex-start;
+    }
+    .card {
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <img class="poster-img"
+       id="flyer"
+       src="https://tmmcommunications2026max-bot.github.io/gudhi-padwa-8/gudhi-padwa-flyer-1.jpg"
+       alt="Gudhi Padwa & Maharashtra Din Celebration 2026"
+       loading="eager"
+       decoding="async">
+
+  <div class="btn-panel" id="btnPanel">
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-gem">✦ ✦ ✦</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="event-time">
+      <span class="time-title">🕥 &nbsp;Gudhi Padwa & Maharashtra Din</span>
+      <span class="time-row">11:30 AM – 6:00 PM</span>
+    </div>
+
+    <div class="early-bird">
+      🔥&nbsp; Hurry! Only 3 Days Left for Early Bird Pricing!
+    </div>
+
+    <div class="cta-row">
+      <a href="https://www.triveni-mandal.org/event-details/gudhi-padwa-2026"
+         class="btn btn-tickets"
+         target="_blank" rel="noopener noreferrer">
+        🎟️&nbsp;&nbsp;Buy Tickets
+      </a>
+      <a href="https://www.triveni-mandal.org/plans-pricing"
+         class="btn btn-member"
+         target="_blank" rel="noopener noreferrer">
+        ⭐&nbsp;&nbsp;Become a Member
+      </a>
+      <a href="https://www.triveni-mandal.org/gudhi-padwa-2025-volunteering-form"
+         class="btn btn-volunteer"
+         target="_blank" rel="noopener noreferrer">
+        🙌&nbsp;&nbsp;Sign Up to Volunteer
+      </a>
+    </div>
+
+    <div class="contact-note">
+      📞 For any ticketing issues, please contact Rohit at <a href="tel:5134458029">513-445-8029</a>
+    </div>
+
+    <div class="footer-note">★ Members enjoy discounted tickets &nbsp;|&nbsp; Volunteers are appreciated — Join us!</div>
+
+  </div>
+</div>
+
+<script>
+  const flyer = document.getElementById('flyer');
+  const panel = document.getElementById('btnPanel');
+  function reveal() { panel.classList.add('visible'); }
+  if (flyer.complete && flyer.naturalWidth > 0) reveal();
+  else {
+    flyer.addEventListener('load',  reveal);
+    flyer.addEventListener('error', reveal);
+  }
+</script>
+
+</body>
+</html>
